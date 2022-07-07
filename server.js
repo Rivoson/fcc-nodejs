@@ -26,7 +26,7 @@ if (!process.env.DISABLE_XORIGIN) {
 // });
 
 app.get('/json', function (req, res) {
-  res.json({ message: "Hello json" });
+  res.json({ message: process.env.MESSAGE_STYLE === "uppercase" ? "HELLO JSON" : "Hello json" });
 });
 
 var port = process.env.PORT || 3000;
