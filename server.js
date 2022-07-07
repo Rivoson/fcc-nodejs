@@ -21,9 +21,9 @@ if (!process.env.DISABLE_XORIGIN) {
   });
 }
 
-app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/views/index.html");
-});
+// app.get("/", function (req, res) {
+//   res.sendFile(__dirname + "/views/index.html");
+// });
 
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
