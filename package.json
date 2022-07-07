@@ -9,6 +9,7 @@
 	},
   "author": "Jane Doe",
   "description": "Learn from fcc",
+  "keywords": ["freecodecamp"],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Rivoson/fcc-nodejs.git"
