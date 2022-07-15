@@ -3,6 +3,7 @@
 
 // init project
 require('dotenv').config();
+var requestIp = require('request-ip');
 var express = require('express');
 var app = express();
 
@@ -26,7 +27,7 @@ app.get("/api/hello", function (req, res) {
 });
 
 app.get("/api/whoami", function (req, res) {
-  res.json({ ipadress: req.socket.remoteAddress, language: req.headers["accept-language"], software: req.headers["user-agent"] });
+  res.json({ ipaddress: requestIp.getClientIp(req), language: req.headers["accept-language"], software: req.headers["user-agent"] });
 });
 
 
