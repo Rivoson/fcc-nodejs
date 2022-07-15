@@ -31,16 +31,12 @@ app.get("/api/shorturl/:number", function (req, res) {
     res.redirect(urls[number - 1]);
 });
 
-app.route("/api/shorturl")
-  .get(function (_, res) {
-    res.json({ original_url: urls[urls.length - 1], short_url: urls.length });
-  })
-  .post(function (req, res) {
+app.post("/api/shorturl", function (req, res) {
     const regex = /^(ftp|http|https):\/\/[^ "]+$/;
     if (!regex.test(req.body.url)) res.json({ error: "Invalid URL" });
     else {
       urls.push(req.body.url);
-      res.redirect("/api/shorturl");
+      res.json({ original_url: urls[urls.length - 1], short_url: urls.length });
     }
   });
 
