@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
 app.route("/api/users")
   .get(async function (_, res) {
     const users = await User.find()
-    res.json(users)
+    res.json(users.map(user => ({ username: user.name, _id: user._id })))
   })
   .post(async function (req, res) {
     try {
